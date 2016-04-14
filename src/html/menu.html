@@ -1,0 +1,428 @@
+<html>
+<head>
+    <meta name="viewport"
+          content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+    <title>菜单</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <!-- build:css ../css/menu.min.css -->
+    <link href="../css/common.css" rel="stylesheet" type="text/css">
+    <link href="../css/menu.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../../lib/layer-1.7/need/layer.css"></script>
+
+    <!-- endbuild -->
+</head>
+<body style="background: #fff" data-domain_hacks="${domainHacks}" data-ent_id="${entId}"
+      data-order_id="${orderId}" data-desk_num="${deskNum}" data-is_add="${isAdd}"
+      data-phone_number="${phoneNumber}" data-channel="${channel}" data-have_seat="${result.isHaveSeat}"
+      data-back_type="${backType}" data-order_dish="${orderDish}" data-model="${dishModel}">
+
+<div class="mw-container clearfix" id="container">
+    <!-- 菜单页-->
+    <div class="mw-menu container hidden" id="mw-menu">
+        <div class="mw-menu-main">
+            <header id="menu-head" class="nowx-header">
+                <div class="backicon" onclick="returnIndex()"></div>
+                <span></span>
+            </header>
+
+            <!--菜单页 小图模式-->
+            <div id="menu-main" class="main small-img hidden" data-sort="4">
+                <div class="mw-dish container-height">
+                    <p id="groupName" class="menu-p menu-gn-fixed">
+                        <span class="menu-group"></span>
+                    </p>
+
+                    <div class="mw-category" id="smallImgCategoryWrapper">
+                        <ul id="smallImgCategory" class="nav clearfix">
+                        </ul>
+                    </div>
+                    <div id="dishListWrapper" class="dish-container mw-dish-list">
+                        <ul id="dishList" class="menu-list"
+                            data-offset="10">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--菜品详情-->
+        <div id="dish-detail" class="dish-detail hidden" style="">
+        </div>
+        <!-- 二级菜单页-->
+        <div id="dishSideWrap" class="dish-side-container hidden">
+            <div id="dishSide" class="dish-side-wrap">
+
+            </div>
+            <div class="d-attr-btd">
+                <div id="backToMenu">返回</div>
+                <div id="addDish">确定<span class="hidden total-price-wrapper">(<span>￥</span><span class="total-price">0.00</span>)</span>
+                </div>
+            </div>
+        </div>
+        <!--菜品购物车-->
+        <!-- 选好了 -->
+        <div class="dish-sure">
+            <div class="dish-sure-inner">
+                <div id="dishSure" class="dish-sure-wrapper" onclick="orderCar(this)">
+                    <div class="dish-sure-num">
+                        <img src="../image/icon-order.png"/>
+                        <span id="iconDisNum">0</span>
+                    </div>
+                    <p><em>￥</em><span id="totalPrice">0</span></p>
+                </div>
+
+                <div id="commitOrder" class="dish-sure-div" data-selected="0" onclick="dishSure(this)">选好了</div>
+            </div>
+        </div>
+        <!-- 已选菜单 -->
+        <div class="dish-show hidden">
+            <div class="dish-sure-inner">
+
+                <div class="dish-sure-num">
+                    <img src="../image/icon-order.png"/>
+                    <span id="orderDishNum">0</span>
+                </div>
+            </div>
+            <div class="dish-show-num clearfix">
+                <p class="return-back">
+                    <img src="../image/left.png" class="returnDowm hidden"/>
+                    已选好 <span id="dishSelectNum">0</span>道菜&nbsp;
+                    <span id="foodSelectNum">0</span><span id="foodSelectShow">份主食</span>
+                    <span id="seatNumContainer" class="hidden"><span id="seatNum">0</span>份餐位</span>
+                    <span id="tablewareNumContainer" class="hidden"><span id="tablewareNum">0</span>份餐具</span>
+                </p>
+
+                <p class="delete">
+                    <img src="../image/delete.png"/>
+                    <em>清空</em>
+                </p>
+            </div>
+            <div class="clearfix dish-show-ul">
+                <ul id="selectDish" class="clearfix">
+                </ul>
+                <ul id="zhushiList" class="clearfix">
+                </ul>
+                <ul id="seatNumList" class="clearfix">
+                </ul>
+                <ul id="canweiList" class="clearfix">
+                </ul>
+            </div>
+        </div>
+        <div class="dish-mask"></div>
+    </div>
+    <!-- 登录页-->
+    <div class="dish-verify-code container hidden">
+        <!-- 顶部文字 -->
+        <!--非微信头部-->
+        <header class="nowx-header hidden">
+            <div class="backicon" onclick="bindLoginBackEvent()"></div>
+            <span>验证手机号</span>
+        </header>
+        <p id="noHaveCoupons1" class="verify-font" >验证手机号,将为您保留点菜记录,下次再来不用选</p>
+        <p id="haveCoupons1" class="verify-font" >验证手机号，可领取并使用商家优惠券</p>
+
+        <p id="" class=""></p>
+        <!-- 验证手机号部分 -->
+        <div>
+            <!-- 手机号获取验证码 -->
+            <p class="verify-number">
+                <img src="../image/phone.png" class="login-tel-img"/>
+                <input id="phone" type="tel" onkeyup="this.value = this.value.replace(/\D/g,'')" style="ime-mode:disabled" maxlength="11" placeholder="手机号"/>
+                <span id="stext" onclick="" class="verify-getverify ">获取验证码</span><span id="timer"
+                                                                                                  class="verify-getverify"
+                                                                                                  style="display: none;color: rgb(153, 153, 153);">rr</span>
+            </p>
+            <!-- 输入验证码部分 -->
+            <p class="verify-number verify-number-key">
+                <img src="../image/keyCode.png" class="login-key-img"/>
+                <input id='vcode' type="tel" maxlength="6" style="ime-mode:disabled" onkeyup='javascript:inputchange();' onchange='javascript:inputchange();'
+                       placeholder="请输入验证码"/>
+            </p>
+        </div>
+        <!-- 底部文字 -->
+        <a id='buttsure' class="verify-submit-disable">验证手机号</a>
+        <a id="noHaveCoupons2" class="verify-noverify" onclick="submitVrOrder();"> 不验证，直接下单 </a>
+        <a id="haveCoupons2" class="verify-noverify" onclick="submitVrOrder();"> 不用优惠，直接下单 </a>
+    </div>
+
+</div>
+
+<!--小图模式 模板-->
+<script id="dishListTpl" type="text/x-jsrender">
+<li class="dish-list" id="page{{:#index}}" data-group_name="{{:dishGroupName}}">
+
+	<p class="menu-p" ="">
+		<span class="menu-group">{{:dishGroupName}}</span>
+	</p>
+	<ul class="my-rightdiv" id="{{:dishGroupId}}"  data-group_type="{{:groupType}}">
+		{{for dishes ~parentIndex=#index}}
+			<li id="s_{{:rowIndex}}"
+			 data-dish_id="{{:dishId}}" data-dish_name="{{:dishName}}"
+			 {{if dishAttrData.length > 0 || sideDishData.length > 0}}
+                data-option = "1"
+             {{else}}
+                data-option = "0"
+             {{/if}}
+			 data-price="{{:~trans2yuan(price)}}" class="menu-cont dish-item clearfix">
+			 <div class="show-detail" ></div>
+				{{if dishPic != ""}}
+				<div class="menu-img">
+					<img class="center-img scroll-loading" style="width: 70px;height: 70px;"
+					    src="../image/s-wait.png"
+					    data-original="{{:~imgPath(dishPic)}}">
+				</div>{{/if}}
+				<div class="dish-right"
+				{{if dishPic == ""}}
+				style="padding-left: 0;padding-top: 0;"
+				{{/if}}
+				>
+					<h3 class="dish-title">{{:dishName}}</h3>
+					<div class="s-option-wrap">
+					    <div class="dish-price">￥
+                            <span class="price">{{:~trans2yuan(price)}}</span>
+                            {{if dishUnit != ''}}
+                            <span class="dish-unit">/{{:dishUnit}}</span>
+                            {{else}}
+                            <span class="dish-unit">/份</span>
+                            {{/if}}
+                            {{if dishAttrData.length > 0 || sideDishData.length > 0}}
+                            <span class="price-start">起</span>
+                            {{/if}}
+                        </div>
+                        {{if orderDish }}
+                        <div class="dish-option">
+                            {{if sideDishData.length > 0}}
+                                <div class="icon-choose"></div>
+                            {{else}}
+                                <span class="icon-option icon-add"></span>
+                                <span class="dish-num hidden">0</span>
+                                <span class="icon-option icon-subtract hidden"></span>
+                                <div class="add-dish"></div>
+                                <div class="subtract-dish"></div>
+                            {{/if}}
+                        </div>
+                        {{/if}}
+					</div>
+				</div>
+			</li>
+		{{/for}}
+	</ul>
+</li>
+
+</script>
+<script id="groupList" type="text/x-jsrender">
+    <li data-group_name={{:dishGroupName}}>
+        <div data-page="#page{{:#index}}">
+            <span class="group-name" style="">{{:dishGroupName}}</span>
+            <em class="dish-group-num hidden">0</em>
+        </div>
+    </li>
+</script>
+
+<!--二级菜单页-->
+<script id="sideDishTpl" type="text/x-jsrender">
+<div class="dish-attr-container" data-dish_id="{{:dishId}}">
+    <div class="pd10">
+        <span class="d-tf">{{:dishName}}</span>
+        <span class="d-pf da-attr">￥<span class="da-price">{{:~trans2yuan(price)}}</span></span>
+        {{if dishUnit != ''}}
+        <span class="d-uf">/{{:dishUnit}}
+        {{if dishAttrData.length > 0}}
+        起
+        {{/if}}
+        </span>
+        {{else}}
+        <span class="d-uf">/斤
+        {{if dishAttrData.length > 0}}
+        起
+        {{/if}}
+        </span>
+        {{/if}}
+    </div>
+    {{for dishAttrData}}
+    <div class="dish-attr-wrapper">
+        <div class="d-atf pd10">{{:attrName}}</div>
+        <section class="d-attr">
+            {{for optionName ~parentIndex=#index}}
+            <div class="attr" data-index="{{:~parentIndex}}">{{:#data}}</div>
+            {{/for}}
+        </section>
+    </div>
+    {{/for}}
+</div>
+<section class="bd" style="margin-top:10px;"></section>
+<div class="">
+    <div class="d-atf pd10">配菜</div>
+    <ul id="sideList" style="padding-left: 10px;">
+        {{for sideDishData}}
+        <li class="d-side-ele" data-dish_name="{{:dishName}}" data-price="{{:price}}">
+            <div class="d-tf">{{:dishName}}</div>
+            <div>
+                <span class="d-pf">￥<span>{{:~trans2yuan(price)}}</span></span>
+                <span class="d-uf">/份</span>
+            </div>
+            <div class="dish-option">
+                <span class="icon-option icon-add"></span>
+                <span class="dish-num hidden">0</span>
+                <span class="icon-option icon-subtract hidden"></span>
+                <div class="add-dish"></div>
+                <div class="subtract-dish hidden"></div>
+            </div>
+        </li>
+        {{/for}}
+    </ul>
+</div>
+</script>
+<script id="attrTpl" type="text/x-jsrender">
+<div class="dish-attr">
+    <div class="dish-attr-header">
+        <div class="attr-dish-name pd10">{{:dishName}}</div>
+        <span class="attr-close"></span>
+    </div>
+    <div class="dish-attr-info " data-dish_id="{{:dishId}}">
+        {{for dishAttrData}}
+        <div class="dish-attr-wrapper" >
+            <div class="d-atf pd10">{{:attrName}}</div>
+            <section class="d-attr">
+                {{for optionName ~parentIndex=#index}}
+                <div class="attr"  data-index="{{:~parentIndex}}">{{:#data}}</div>
+                {{/for}}
+            </section>
+        </div>
+        {{/for}}
+    </div>
+    <div class="attr-option" data-dish_id="{{:dishId}}">
+        <div  class="attr-price total-price-wrapper">
+            <span class="price-unit">￥</span>
+            <span class="price total-price">{{:~trans2yuan(price)}}</span>
+            {{if dishUnit != ''}}
+            <span class="dish-unit">/{{:dishUnit}}</span>
+            {{else}}
+            <span class="dish-unit">/份</span>
+            {{/if}}
+            {{if !chosenDishAttr || chosenDishAttr.length <= 0}}
+            <span  class="dish-unit"></span>
+            {{/if}}
+        </div>
+        <div id="addDishByAttr" class="attr-sure">确定</div>
+        <div class="dish-option hidden" data-dish_id="{{:dishId}}">
+            <span class="icon-option icon-add"></span>
+            <span class="dish-num hidden">0</span>
+            <span class="icon-option icon-subtract hidden"></span>
+            <div class="add-dish"></div>
+            <div class="subtract-dish hidden"></div>
+        </div>
+        <div class="att-choose">
+        已选：<span id="chosen"></span>
+        </div>
+    </div>
+</div>
+</script>
+
+<!--购物车的菜品模板-->
+<script id="shopCarTpl" type="text/x-jsrender">
+<li data-dish_name="{{:dishName}}" class="add-dish-item" data-group_type="{{:groupType}}"
+    data-dish_id="{{:dishId}}" data-md5={{:dishMd5}}>
+    <div class="car-dish clearfix">
+        <div class="car-dish-name">
+            {{:showName}}
+            {{if groupType == 1}}
+            <span>[主食]</span>
+            {{else groupType == 2}}
+            <span>[餐位]</span>
+            {{else groupType == 4}}
+            <span>[餐具]</span>
+            {{/if}}
+        </div>
+        <div class="dish-price">￥<span class="price">{{:~trans2yuan(totalPrice)}}</span>
+            {{if !!dishUnit  && dishUnit.length > 0}}
+            <span class="dish-unit">/{{:dishUnit}}</span>
+            {{else}}
+            <span class="dish-unit">/份</span>
+            {{/if}}
+            <!--<span class="price-start">起</span>-->
+        </div>
+        <div class="dish-option">
+            <span class="icon-option icon-adding"></span>
+            {{if !!num }}
+            <span class="dish-num">{{:num}}</span>
+            {{else}}
+            <span class="dish-num">1</span>
+            {{/if}}
+            <span class="icon-option icon-subtract"></span>
+            <div class="add-dish"></div>
+            <div class="subtract-dish"></div>
+        </div>
+    </div>
+    {{if !!sideDishStr && sideDishStr.length > 0}}
+    <div class="car-side-dish">
+        配菜:{{:sideDishStr}}
+    </div>
+    {{/if}}
+</li>
+</script>
+<!--添加至小图模式的选中菜品-->
+<script id="appendHtmlTpl" type="text/x-jsrender">
+<div class="append-container" data-dish_id="{{:dishId}}" data-md5={{:dishMd5}}>
+    <div class="append-wrapper clearfix" >
+        <div class="ad-name clearfix">
+            {{:showName}}
+        </div>
+        {{if sideDishStr != '' && sideDishStr.length > 0}}
+        <div class="ad-side">
+            配菜:{{:sideDishStr}}
+        </div>
+        {{/if}}
+        <div class="ad-option-wrapper clearfix">
+            <div class="ad-price-wrapper">
+                ￥<span class="price">{{:~trans2yuan(totalPrice)}}</span>
+                {{if dishUnit != ''}}
+                <span class="dish-unit">/{{:dishUnit}}</span>
+                {{else}}
+                <span class="dish-unit">/份</span>
+                {{/if}}
+            </div>
+            <div class="dish-option">
+                <span class="icon-option icon-plus"></span>
+                <span class="dish-num">{{:num}}</span>
+                <span class="icon-option icon-reduce"></span>
+                <div class="plus-dish"></div>
+                <div class="reduce-dish"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</script>
+
+<script id="warningTip" type="text/x-jsrender">
+<div class="warn-wrapper">
+    <img src="../microweb/image/icon-warning.png">
+</div>
+<div>
+{{:data}}
+</div>
+</script>
+
+<script type="text/javascript" src="../../lib/layer-1.7/layer.js"></script>
+
+<!-- build:js ../js/lib.js -->
+<script type="text/javascript" src="../../lib/jquery-1.11/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../../lib/lazyload/jquery.lazyload.min.js"></script>
+<script type="text/javascript" src="../../lib/jquery.rander/jsrander.min.js"></script>
+<script type="text/javascript" src="../../lib/jquery.md5/jquery.md5.js"></script>
+<script type="text/javascript" src="../../lib/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../js/scrollspy.js"></script>
+<!-- endbuild -->
+
+<!-- build:js ../js/menu.min.js -->
+<script type="text/javascript" src="../js/data.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/dishList.js"></script>
+<script type="text/javascript" src="../js/dish.js"></script>
+<!-- endbuild -->
+
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Gulpfile.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/css/common.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/css/menu.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/html/dish.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/js/common.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/dish.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/dishList.js" charset="UTF-8" />
+  </component>
+</project>

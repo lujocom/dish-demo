@@ -1,0 +1,1328 @@
+.layermbox0 .layermcont{
+    padding: 5px 15px !important;
+
+}
+
+body {
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
+    -webkit-highlight: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+
+/*菜单页样式*/
+.mw-container .small-img {
+   /* position: absolute;
+    top: 50px;
+    bottom: 50px;
+    width: 100%;*/
+}
+
+.small-img .mw-category,
+.small-img .dish-container
+{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+.small-img .mw-dish-list,
+.small-img .dish-container{
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch
+}
+.small-img .mw-dish {
+    position: relative;
+}
+
+.dish-container{
+    -webkit-transition: -webkit-transform .4s ease-in;
+}
+
+.menu-list{
+    position: relative;
+    overflow: auto;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.menu-list::-webkit-scrollbar ,
+.small-img .mw-category::-webkit-scrollbar{
+    display: none;
+}
+
+.small-img .mw-category {
+    width: 25%;
+    border-right: 1px solid #d6d6d6;
+    background: #fcfcfc;
+    overflow: auto;
+    -webkit-transform:translate3d(0,0,0);
+}
+
+.small-img .mw-category .dish-group-num {
+    position: absolute;
+    background-color: #479bff;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    right: 2px;
+    top: 2px;
+    font-style: normal;
+    z-index: 2;
+}
+
+.small-img .mw-category ul li {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 5px;
+    display: block;
+    text-align: center;
+    position: relative;
+}
+
+.small-img .mw-category ul li.active span {
+    color: #cf112d;
+}
+
+.small-img .mw-category ul li span {
+    font-size: 14px;
+    color: #494949;
+}
+
+.small-img .mw-dish-list {
+    width: 75%;
+    left: 25%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-transform:translate3d(0,0,0);
+}
+
+.small-img .dish-list::-webkit-scrollbar {
+    width: 0;
+}
+
+.page-inner::-webkit-scrollbar {
+    width: 0;
+}
+.small-img .active {
+    background: #fff;
+    border-right: 1px solid #fff;
+    background-image: url(../image/group_select.png);
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.small-img .menu-p{
+    color: #FFFFFF;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-top: 1px solid #D8D8D8;
+    background-color: #F6F6F6;
+}
+
+#groupName.menu-gn-fixed{
+    top: 49px;
+    padding: 0;
+    border-top: 0;
+    font-size:16px;
+}
+#groupName.menu-gn-fixed .menu-group{
+    height: auto;
+    width: 180px;
+    padding: 6px 10px;
+}
+
+.small-img-icon:before {
+    background: url("../image/model-small-img.png") no-repeat;
+    background-size: 76%;
+}
+
+.small-img .menu-group{
+    color: #909090;
+    width: 70px;
+    height: 25px;
+    line-height: 25px;
+    display: inline-block;
+    text-align: left;
+    overflow: hidden;
+}
+
+.small-img .my-rightdiv {
+    padding-left: 10px;
+    background: #fff;
+}
+
+.small-img .menu-cont {
+    padding: 10px 0;
+    background: #fff;
+    position: relative;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+.small-img .menu-img {
+    position: relative;
+    float: left;
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+}
+
+.small-img .menu-img img {
+    position: absolute;
+}
+
+.small-img .dish-right {
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 7px;
+    padding-top: 12px;
+}
+
+.small-img .dish-title {
+    font-size: 16px;
+    color: #1f1f1f;
+    font-weight: normal;
+    height: 23px;
+    line-height: 23px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.s-option-wrap{
+    position: relative;
+}
+
+.dish-sure, .dish-make {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 52px;
+    background: white;
+    line-height: 1;
+    z-index: 200;
+    border-top: 1px solid #e6e6e6;
+}
+
+.dish-show .dish-sure-inner {
+    top: 0;
+    position: relative;
+}
+
+.dish-sure-inner, .dish-make-inner {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 52px;
+    padding: 0 10px;
+    width: 100%;
+    z-index: 200;
+}
+
+.dish-sure-wrapper{
+    position: absolute;
+    top: 0;
+    right: 100px;
+    left: 10px;
+    bottom: 0;
+}
+
+.dish-sure-inner p {
+    font-size: 20px;
+    color: #cf112d;
+    float: left;
+    line-height: 52px;
+    margin-left: 10px;
+}
+
+.dish-sure-inner p em {
+    font-size: 12px;
+    color: #cf112d;
+    font-style: normal;
+}
+
+.dish-sure-num {
+    float: left;
+    position: relative;
+    margin-top: 6px;
+}
+
+.dish-sure-num img {
+    height: 40px;
+}
+
+.dish-sure-num span {
+    font-size: 14px;
+    color: #22C9DF;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    right: -5px;
+    text-align: center;
+    line-height: 20px;
+    top: -3px;
+}
+
+.dish-sure-div {
+    font-size: 14px;
+    color: white;
+    float: right;
+    background-color: #cf112d;
+    height: 34px;
+    line-height: 34px;
+    margin-top: 10px;
+    width: 80px;
+    text-align: center;
+}
+
+.dish-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: black;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    opacity: 0.4;
+    display: none;
+}
+
+.dish-show {
+    width: 100%;
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    bottom: 52px;
+    height: 0;
+    overflow-y: hidden;
+    -webkit-transition: height 0.25s ease;
+    /*display: none;*/
+}
+
+.dish-show-num {
+    line-height: 40px;
+    font-size: 14px;
+    color: #a5a5a5;
+    padding: 0 10px;
+    border-bottom: 1px solid #e6e6e6;
+    background-color: #fcfcfc;
+    height: 40px;
+}
+
+.dish-show-num span {
+    color: #358aef;
+}
+
+.dish-show-num div {
+    float: right;
+    line-height: 42px;
+}
+
+.dish-show-num div img {
+    width: 17px;
+    vertical-align: top;
+    margin-top: 11px;
+}
+
+.dish-show-num div em {
+    font-style: normal;
+}
+
+.dish-show-ul {
+    position: absolute;
+    right: 0;
+    top: 92px;
+    bottom: 0;
+    left: 0;
+    padding: 0 0 10px 0;
+    overflow-y: auto;
+    background: #ffffff;
+    -webkit-overflow-scrolling: touch
+}
+
+.dish-show-ul::-webkit-scrollbar {
+    width: 0;
+}
+
+.dish-show-ul li {
+    display: block;
+    padding: 12px 10px 12px 0;
+    border-bottom: 1px solid #e6e6e6;
+    position: relative;
+}
+
+.dish-show-name {
+    font-size: 14px;
+    color: #494949;
+    float: left;
+    width: 46%;
+    padding-left: 10px;
+}
+
+.menu-gn-fixed {
+    position: fixed;
+    left: 25%;
+    z-index: 99;
+    width: 75%;
+}
+
+.menu-gn-fixed .menu-group {
+    color: #cf112d;
+}
+
+.mybgshow1 {
+    background: url(../image/11plus.png) no-repeat;
+    background-size: 100%;
+}
+
+.mybgshow2 {
+    background: url(../image/1plus.png) no-repeat;
+    background-size: 100%;
+}
+
+.dish-dishnum, .dish-dishnum1 {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #444444;
+    font-size: .875em;
+    float: right;
+    line-height: 24px;
+}
+
+.slideInUp {
+    height: 50%;
+}
+
+#food-show {
+    display: none;
+    font-size: 12px;
+    background-color: #e4e4e4;
+    border: 1px solid #cccccc;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+#table-show {
+    display: none;
+    font-size: 12px;
+    background-color: #e4e4e4;
+    border: 1px solid #cccccc;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+.stapleFoodCountShow {
+    display: none;
+}
+
+.dishListCountShow {
+    display: none;
+} 
+
+.tablewareNumber{
+	display:none;
+}
+
+#foodSelectNum {
+    display: none;
+}
+
+#foodSelectShow {
+    display: none;
+    color: #a5a5a5;
+}
+
+/*购物车样式*/
+.menu-cont-price1 {
+    float: left;
+    font-size: 12px;
+    height: 22px;
+}
+
+.menu-cont-price2 {
+    padding-left: 5px;
+    font-size: 16px;
+    height: 30px;
+    color: #CF112D;
+    line-height: 35px;
+}
+
+.menu-cont-price1 em {
+    font-style: normal;
+    color: #D3533D;
+}
+
+.menu-cont-price1 span {
+    font-size: 16px;
+    color: #D3533D;
+}
+
+.icon-car-dish-plus {
+    float: right;
+    width: 25px;
+    height: 25px;
+    background: url(../image/1plus.png) no-repeat;
+    background-size: 100%;
+}
+
+/*菜品加减菜操作样式*/
+.s-option-wrap .dish-price{
+    width: 100%;
+    text-align: left;
+    float: left;
+    font-size: 12px;
+    height: 25px;
+    line-height: 25px;
+    color: #cf112d;
+}
+
+
+.s-option-wrap .dish-option, .car-dish .dish-option,
+.ad-option-wrapper .dish-option{
+    position: absolute;
+    right: 6px;
+    top: 0;
+    width: 30%;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+}
+
+.d-side-ele .dish-option{
+    line-height: 22px;
+    text-align: center;
+    width: 65px;
+    position: absolute;
+    right: 10px;
+}
+
+.attr-option .dish-option{
+    line-height: 22px;
+    width: 20%;
+    right: 26px;
+    top: 20px;
+    position: absolute;
+    text-align: center;
+}
+
+.s-option-wrap .dish-option{
+    width: 65px;
+    right: 0;
+}
+
+.icon-choose{
+    background: url("../image/icon-side.png") no-repeat;
+    background-size: 100%;
+    width: 56px;
+    height: 23px;
+    position: absolute;
+    top: -2px;
+    right: -3px;
+}
+
+.icon-choose:active{
+    background: url("../image/icon-side-active.png") no-repeat;
+    background-size: 100%;
+    width: 56px;
+    height: 23px;
+    position: absolute;
+    top: -2px;
+    right: -3px;
+}
+
+.attr-option .attr-price,.car-dish .dish-price{
+    float: left;
+    font-size: 12px;
+    width: 40%;
+    height: 35px;
+    text-align: left;
+    color: #cf112d;
+}
+
+.attr-option .attr-price{
+    width: 100%;
+}
+
+.attr-option .attr-price{
+    font-size: 14px;
+    line-height: 25px;
+    height: 25px;
+}
+
+.attr-price .price{
+    font-size: 18px;
+}
+
+.dish-price .price{
+    font-size: 16px;
+}
+
+.dish-price .dish-unit,
+.dish-price .price-start,
+.attr-price .dish-unit{
+    color: #969696;
+}
+
+.dish-option .dish-num{
+    font-size: 14px;
+}
+
+.dish-option .icon-option:before{
+    content: '';
+    position: absolute;
+    top: 11px;
+    width: 23px;
+    height: 23px;
+}
+
+.s-option-wrap .icon-option:before
+{
+    top: 1px;
+}
+
+.d-side-ele .icon-option:before{
+    top: 0;
+}
+
+.attr-option .icon-option:before{
+    top: 0;
+}
+
+.dish-option .icon-subtract:before{
+    left: 1px;
+    background: url("../image/icon-subtract.png") no-repeat;
+    background-size: 100%;
+}
+.dish-option .icon-add:before{
+    right: 0;
+    background: url("../image/icon-add.png") no-repeat;
+    background-size: 100%;
+}
+
+.dish-option .icon-adding:before{
+    right: 0;
+    background: url(../image/icon-adding.png) no-repeat;
+    background-size: 100%;
+}
+
+.dish-option .add-dish{
+    position: absolute;
+    width: 30px;
+    height: 36px;
+    right: -3px;
+    top: 3px;
+}
+
+.dish-option .subtract-dish{
+    position: absolute;
+    width: 30px;
+    height: 36px;
+    left: -3px;
+    top: 3px;
+}
+
+.dish-show-ul .subtract-dish,
+.dish-show-ul .add-dish{
+    height: 50px;
+    top: -13px;
+}
+
+.menu-cont .add-dish, .menu-cont .subtract-dish{
+    top: -6px;
+}
+
+/*菜品属性*/
+
+.dish-attr-info{
+    min-height: 100px;
+}
+
+.dish-attr-wrapper:last-child{
+    margin-bottom: 10px;
+}
+
+.dish-attr-header{
+    position: relative;
+}
+
+.attr-close{
+    width: 39px;
+    height: 31px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.attr-close:before{
+    content: '';
+    position: absolute;
+    right: 10px;
+    top: 13px;
+    background: url("../image/attr-close.png") no-repeat;
+    background-size: 75%;
+    width: 24px;
+    height: 24px;
+}
+
+.attr-dish-name{
+    color: #1F1F1F;
+    font-size: 16px;
+}
+
+.attr-option{
+    height: 55px;
+    padding: 10px 0 0 10px;
+    position: relative;
+    border-top: 1px solid #D8D8D8;
+}
+
+.att-choose{
+    color: #969696;
+    font-size: 14px;
+}
+
+.dish-attr-info .d-attr div{
+    padding: 2px 7px;
+}
+.attr-sure{
+    bottom: 3px;
+    text-align: center;
+    overflow: hidden;
+    border-top: 1px solid #D8D8D8;
+    font-size: 16px;
+    padding: 8px;
+    width: 30%;
+    position: absolute;
+    right: 10px;
+    background: #CD112D;
+    color: white;
+}
+/*二级菜单页*/
+.dish-side-wrap{
+    position: absolute;
+    top: 0;
+    bottom: 59px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.dish-side-wrap::-webkit-scrollbar{
+    display: none;
+}
+
+.d-tf {
+    color: #1F1F1F;
+    font-size: 16px;
+}
+.d-pf {
+    color: #D23B40;
+    font-size: 14px;
+}
+
+.dish-attr-container .d-pf{
+    font-size: 16px;
+}
+
+.d-uf {
+    color: #969696;
+    font-size: 12px;
+}
+.d-atf {
+    color: #969696;
+    font-size: 14px;
+}
+.pd10 {
+    padding: 10px;
+}
+.ptb {
+    padding: 10px 0 10px 0;
+}
+.d-attr {
+    overflow: hidden;
+    padding-left: 5px;
+    padding-bottom: 3px;
+}
+
+.d-attr div {
+    border: 1px solid #D8D8D8;
+    padding: 7px;
+    background: #F0F0F0;
+    width: 30%;
+    text-align: center;
+    font-size: 15px;
+    margin: 5px;
+    float: left;
+}
+.d-attr div.on {
+    background: #CD112D;
+    color: white;
+    border: 1px solid #CD112D;
+}
+.bd {
+    border-bottom: 1px solid #D8D8D8;
+}
+.d-side-ele {
+    border-bottom: 1px solid #D8D8D8;
+    padding: 10px 10px 10px 0;
+    color: #1F1F1F;
+    font-size: 16px;
+    overflow: hidden;
+    position: relative;
+}
+.d-side-ele div {
+    float: left;
+    width: 26%;
+    position: relative;
+}
+.d-side-ele div:first-child {
+    width: 48%;
+}
+.d-attr-btd{
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    overflow:hidden;
+    border-top: 1px solid #D8D8D8;
+    background: white;
+    z-index: 100;
+    font-size: 16px;
+}
+.d-attr-btd div:first-child{
+    padding:8px;
+    width: 40%;
+    background: #F0F0F0;
+    float: left;
+
+}
+.d-attr-btd div:last-child{
+    padding:8px;
+    width: 55%;
+    float: right;
+    background: #CD112D;
+    color: white;
+}
+.dish-side-wrap .add-dish,
+.dish-side-wrap .subtract-dish{
+    top: -8px;
+}
+
+/*二级菜单--结束*/
+
+/*购物车--start*/
+.dish-show-ul ul{
+    padding-left: 10px;
+}
+.car-dish{
+    position: relative;
+}
+.car-dish-name{
+    float: left;
+    width: 40%;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.car-dish-name span{
+    font-size: 12px;
+    color: #A4A4A4;
+}
+
+.car-dish .dish-price{
+    line-height: 25px;
+    height: 25px;
+}
+
+.car-dish .dish-option{
+    width: 65px;
+}
+
+.car-dish .icon-option:before{
+    top: 1px;
+}
+.car-side-dish{
+    font-size: 12px;
+    color: #9F9F9F;
+    line-height: 15px;
+}
+#tablewareNumContainer, #seatNumContainer{
+    color: #a5a5a5;
+}
+#tablewareNumContainer span, #seatNumContainer span{
+    color: #358aef;
+}
+/*购物车--end*/
+
+/*点配菜以及属性-start*/
+
+.append-container{
+    background: #F6F6F6;
+    width: 100%;
+    position: relative;
+    padding: 10px;
+    border-bottom: 1px solid #E6E6E6;
+}
+.append-wrapper{
+    position: relative;
+}
+.no-img-dish .append-container{
+    margin-top: 0;
+}
+
+.triangle:before{
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #F6F6F6;
+    position: absolute;
+    top: -8px;
+    left: 23px;
+}
+
+.ad-name{
+    font-size: 14px;
+}
+.ad-side{
+    color: #999999;
+    font-size: 12px;
+    line-height: 15px;
+    margin-top: 5px;
+}
+.no-img-dish .ad-side{
+}
+.ad-option-wrapper{
+    position: relative;
+    height: 25px;
+}
+.ad-price-wrapper{
+    width: 50%;
+    float: left;
+    color: #cf112d;
+    font-size: 12px;
+}
+
+.ad-price-wrapper .price{
+    line-height: 25px;
+    height: 25px;
+    font-size: 16px;
+}
+
+.ad-price-wrapper .dish-unit{
+    color: #999999;
+}
+
+.ad-option-wrapper .dish-option{
+    width: 65px;
+}
+
+.ad-option-wrapper .icon-option:before{
+    top: 0;
+}
+.ad-option-wrapper .icon-option:before{
+    top: 0;
+}
+
+.dish-option .icon-plus:before{
+    right: 0;
+    background: url("../image/choosen-plugs.png") no-repeat;
+    background-size: 100%;
+}
+
+.dish-option .icon-reduce:before{
+    left: 1px;
+    background: url("../image/choose-reduce.png") no-repeat;
+    background-size: 100%;
+}
+
+.dish-option .plus-dish{
+    position: absolute;
+    width: 30px;
+    height: 36px;
+    right: -3px;
+    top: -7px;
+}
+
+.dish-option .reduce-dish{
+    position: absolute;
+    width: 30px;
+    height: 36px;
+    left: -3px;
+    top: -7px;
+}
+
+.ad-option-wrapper .dish-option{
+    right: -3px;
+}
+
+.no-img-dish .ad-name{
+    width: 35%;
+    float: left;
+    height: 23px;
+    line-height: 23px;
+}
+
+.no-img-dish .ad-price-wrapper{
+    width: 50%;
+    float: left;
+    margin-left: 4px;
+}
+.no-img-dish .ad-option-wrapper{
+    position: relative;
+    float: left;
+    width: 65%;
+}
+
+.no-img-dish .ad-option-wrapper .dish-option{
+    right: -5px;
+}
+
+.warn-wrapper img{
+    height: 20px;
+    margin-top: 3px;
+    margin-bottom: 5px;
+}
+
+
+/*点配菜以及属性-end*/
+
+.dish-verify-code{
+	background-color: #F5F5F5;
+	width: 100%;
+	height: 100%;
+}
+
+.verify-font{
+	font-size:14px;
+	color:#414141;
+	width: 100%;
+    vertical-align:middle;
+	line-height: 65px;
+	text-align: center;
+
+}
+.verify-phone{
+	background: url(../image/phone.png) no-repeat left;
+	height:57px;
+	width:63%;
+	display:inline-block;
+	margin-left: 8%;
+    background-size: auto 50%;
+}
+.verify-key{
+	background: url(../image/keyCode.png) no-repeat left;
+	height:57px;
+	width:70%;
+	display:inline-block;
+	margin-left: 7%;
+    background-size: auto 50%;
+	
+}
+.verify-number{
+	background-color: #ffffff;
+    width: 100%;
+    height: 57px;
+    line-height: 57px;
+    border-top: 1px solid #D7D7D7;
+    display: inline-block;
+    background-size: auto 45%;
+}
+.verify-number-key{
+	border-bottom:1px solid #D7D7D7;
+}
+.dish-verify-code input{
+	display: inline-block;
+    height: 54px;
+    width: 59%;
+    line-height: 54px;
+    outline: none;
+    border: 0;
+    font-size: 14px;
+}
+.dish-verify-code .addBorder{
+    border-right:1px solid #DCDCDC;
+}
+#phone {
+    height: 16px;
+    line-height: 16px;
+    margin: 20px 0;
+    padding-left: 15px;
+}
+#vcode {
+    height: 16px;
+    line-height: 16px;
+    margin: 19px 0;
+    padding-left: 15px;
+
+    width:90%;
+}
+#noHaveCoupons2,#haveCoupons2{
+    color:#487b96;
+    font-size: 15px;
+}
+.login-key-img {
+    float: left;
+    width: 19px;
+    margin: 16px 0 0 13px;
+}
+.login-tel-img {
+    float: left;
+    height: 22px;
+    margin: 17px 0 0 18px;
+}
+.verify-getverify{
+	display:inline-block;
+	height:55px;
+	width:29%;
+	border-left: 1px solid #DCDCDC;
+	font-size:14px;
+	text-align: center;
+	color:#487B96
+}
+.verify-submit{
+	display:inline-block;
+	width:90%;
+	margin: 45px 0 20px 5%;
+	height:42px;
+	line-height:42px;
+	border:1px solid #F2E6E8;
+	color:#FFFFFF;
+	background-color:#CF112D;
+	text-align:center;
+}
+.verify-noverify{
+    display:inline-block;
+    width:100%;
+    text-align:center;
+    text-decoration:underline;
+}
+.verify-submit-disable{
+    display:inline-block;
+    width:90%;
+    margin: 45px 0 20px 5%;
+    height:42px;
+    line-height:42px;
+    border:1px solid #F2E6E8;
+    color:#FFFFFF;
+    background-color:#AFAFAF;;
+    text-align:center;
+}
+.chooseNum{
+    font-size: 12px;
+    background: #23C6D9;
+    color: #fff;
+    position: absolute;
+    right: 19px;
+    top: 7px;
+    border-radius: 2px;
+    display: none;
+    padding: 0 2px;
+
+}
+
+.ovfHiden {
+    overflow: hidden;
+    height: 100%;
+}
+.show-detail{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 68%;
+    z-index: 1;
+
+}
+.dish-show-num .return-back{
+    float: left;
+}
+.overy{
+    overflow-y: hidden;
+}
+.dish-show-num .returnDowm{
+    height:17px;
+    margin-right:7px;
+    vertical-align: middle;
+    margin-top: -2px;
+    width:9px;
+}
+.delete{
+    float: right;
+}
+.delete img{
+    height: 13px;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+.delete em{
+    font-size:12px;
+}
+
+.slideInUp1{
+    -webkit-animation:slideInUp1 .23s 1 ease;
+    -webkit-animation-fill-mode:forwards;
+}
+
+.slideInUp2{
+    height:50%;
+}
+#showdiv{
+    height:100%;
+}
+/*选择餐具*/
+.tableware-container{
+
+}
+
+.tableware-title{
+    font-size: 16px;
+    padding: 10px;
+}
+
+.tableware-content.one{
+    border: 1px solid #D8D8D8;
+    padding: 5px;
+    margin: 0 10px;
+}
+
+
+.tableware-content .tips{
+    color: #969696;
+}
+
+.tableware-content input{
+    border: 0;
+    padding: 10px 0;
+    height: 40px;
+    font-size: 18px;
+    line-height: 18px;
+    color: #125B82;
+    text-shadow: 0 0 0 #000;
+    -webkit-text-fill-color: transparent;
+}
+
+.tableware-content input::-webkit-input-placeholder{
+    color:#125B82;
+    font-size: 14px;
+    text-shadow: none;
+    -webkit-text-fill-color: initial;
+}
+
+.tableware-content input:focus{
+    border: 0;
+    outline-color: #fff;
+}
+
+.tableware-option{
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.tableware-option.one div:first-child{
+    padding-left: 10px;
+}
+
+.tableware-option div:first-child{
+    height: 20px;
+    line-height: 20px;
+}
+
+.tableware-option .one-skip{
+    text-align: right;
+}
+.tableware-option .one-skip a{
+    color: #4A7B95;
+    text-decoration: underline;
+}
+.tableware-item{
+    position: relative;
+    height: 35px;
+    width: 100%;
+    line-height: 35px;
+    padding: 0 10px;
+    overflow: hidden;
+    border-bottom: 1px solid #D8D8D8;
+}
+
+.tableware-item .dish-name, .tableware-item .dish-price{
+    width: 33.33%;
+    float: left;
+    color: #2A2A2A;
+}
+
+.tableware-item .dish-unit{
+    color: #2A2A2A;
+ }
+
+.tableware-item .price{
+    color: #cf112d;
+}
+
+.tableware-item .dish-option{
+    position: relative;
+    width: 70px;
+    float: right;
+    height: 35px;
+    text-align: center;
+}
+
+.tableware-item .icon-option:before{
+    top: 4px;
+}
+.tableware-content.more{
+    border: 0;
+    padding: 0;
+    border-top: 1px solid #D8D8D8;
+
+}
+.tableware-option.more{
+    text-align: right;
+    padding: 0 10px 10px;
+}
+
+.tableware-option .skip{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.tableware-option .addTableware{
+    padding: 5px 10px;
+    width: 50%;
+    text-align: center;
+    background: #969696;
+    color: #fff;
+    margin-left: 40%;
+    margin-top: 10px;
+}
+
+.tableware-option .skip a{
+    color: #4A7B95;
+    text-decoration: underline;
+}
+.one .skip{
+    top: 42px;
+}
+
+.one .addTableware{
+    width: 70%;
+    margin-left: 60px;
+    float:right;
+    margin-right:10px;
+}
